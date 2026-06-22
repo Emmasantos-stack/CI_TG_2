@@ -1,8 +1,6 @@
 using UnityEngine;
-<<<<<<< Updated upstream
 using UnityEngine.SceneManagement;
-=======
->>>>>>> Stashed changes
+
 
 public class WaterGameManager : MonoBehaviour
 {
@@ -12,10 +10,8 @@ public class WaterGameManager : MonoBehaviour
     [Header("Game")]
     [SerializeField, Min(1)] private int startingLives = 3;
     [SerializeField, Min(1f)] private float gameDuration = 60f;
-<<<<<<< Updated upstream
     [SerializeField] private string menuSceneName = "SeleçaoMundo";
-=======
->>>>>>> Stashed changes
+
 
     [Header("References")]
     [SerializeField] private WaterHUD hud;
@@ -91,7 +87,6 @@ public class WaterGameManager : MonoBehaviour
         hud?.SetInstructions(false);
     }
 
-<<<<<<< Updated upstream
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -108,8 +103,6 @@ public class WaterGameManager : MonoBehaviour
         SceneManager.LoadScene(menuSceneName);
     }
 
-=======
->>>>>>> Stashed changes
     public void AddScore(int amount)
     {
         if (!IsGameStarted || IsGameOver || amount <= 0)
