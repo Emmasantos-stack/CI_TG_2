@@ -5,6 +5,7 @@ public class WaterHUD : MonoBehaviour
 {
     [SerializeField] private TMP_Text scoreText;
     [SerializeField] private TMP_Text livesText;
+    [SerializeField] private GameObject instructionsPanel;
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private TMP_Text finalScoreText;
 
@@ -21,6 +22,14 @@ public class WaterHUD : MonoBehaviour
         if (livesText != null)
         {
             livesText.text = $"Vidas: {lives}";
+        }
+    }
+
+    public void SetInstructions(bool visible)
+    {
+        if (instructionsPanel != null)
+        {
+            instructionsPanel.SetActive(visible);
         }
     }
 

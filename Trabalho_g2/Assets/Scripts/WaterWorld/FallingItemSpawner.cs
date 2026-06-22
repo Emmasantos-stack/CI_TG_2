@@ -81,11 +81,16 @@ public class FallingItemSpawner : MonoBehaviour
 
     private IEnumerator SpawnLoop()
     {
+        while (gameManager == null || !gameManager.IsGameStarted)
+        {
+            yield return null;
+        }
+
         while (true)
         {
             DifficultySettings settings = GetCurrentSettings();
 
-            if (gameManager != null && !gameManager.IsGameOver)
+            if (!gameManager.IsGameOver)
             {
                 SpawnItem(settings);
             }

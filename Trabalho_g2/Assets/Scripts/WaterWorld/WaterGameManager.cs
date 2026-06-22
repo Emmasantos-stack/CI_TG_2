@@ -14,12 +14,14 @@ public class WaterGameManager : MonoBehaviour
 
     public int Score { get; private set; }
     public int Lives { get; private set; }
+    public bool IsGameStarted { get; private set; }
     public bool IsGameOver { get; private set; }
 
     private void Awake()
     {
         Score = 0;
         Lives = startingLives;
+        IsGameStarted = false;
         IsGameOver = false;
     }
 
@@ -29,6 +31,7 @@ public class WaterGameManager : MonoBehaviour
         {
             hud.SetScore(Score);
             hud.SetLives(Lives);
+            hud.SetInstructions(true);
             hud.SetGameOver(false, Score);
         }
 
@@ -42,9 +45,20 @@ public class WaterGameManager : MonoBehaviour
         }
     }
 
+    public void StartGame()
+    {
+        if (IsGameStarted || IsGameOver)
+        {
+            return;
+        }
+
+        IsGameStarted = true;
+        hud?.SetInstructions(false);
+    }
+
     public void AddScore(int amount)
     {
-        if (IsGameOver || amount <= 0)
+        if (!IsGameStarted || IsGameOver || amount <= 0)
         {
             return;
         }
@@ -56,7 +70,7 @@ public class WaterGameManager : MonoBehaviour
 
     public void LoseLife(int amount)
     {
-        if (IsGameOver || amount <= 0)
+        if (!IsGameStarted || IsGameOver || amount <= 0)
         {
             return;
         }
