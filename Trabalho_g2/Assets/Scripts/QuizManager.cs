@@ -1,30 +1,34 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
+
+
+[System.Serializable]
+public class Question
+{
+    public string questionText;
+    public string[] answers;
+    public int correctAnswer;
+    public Sprite character;
+}
 
 public class QuizManager : MonoBehaviour
 {
-    [System.Serializable]
-    public class Question
-    {
-        public string questionText;
-        public string[] answers;
-        public int correctAnswer;
-        public Sprite background;
-    }
-
-    public Question[] questions;
-
     public TextMeshProUGUI questionText;
     public TextMeshProUGUI[] answerTexts;
-    public Image backgroundImage;
+    public Button[] answerButtons;
 
-    public GameObject resultPanel;
-    public TextMeshProUGUI resultText;
+    public Image characterImage;
+    public TextMeshProUGUI feedbackText;
+    public TextMeshProUGUI progressText;
+
+   public Slider progressBar;
+    public Question[] questions;
 
     private int currentQuestion = 0;
     private int score = 0;
+    private bool canAnswer = true;
 
     void Start()
     {
@@ -33,30 +37,65 @@ public class QuizManager : MonoBehaviour
 
     void ShowQuestion()
     {
+        canAnswer = true;
+        feedbackText.text = "";
+
         Question q = questions[currentQuestion];
 
         questionText.text = q.questionText;
+        characterImage.sprite = q.character;
 
-        for (int i = 0; i < answerTexts.Length; i++)
+        progressBar.maxValue = questions.Length;
+        progressBar.value = currentQuestion + 1;
+
+        progressText.text = "Pergunta " + (currentQuestion + 1) + " / " + questions.Length;
+        
+
+        for (int i = 0; i < answerButtons.Length; i++)
         {
-            answerTexts[i].text = q.answers[i];
-        }
+            int index = i;
 
-        StartCoroutine(ChangeBackground(q.background));
+            answerTexts[i].text = q.answers[i];
+
+            answerButtons[i].interactable = true;
+            answerButtons[i].GetComponent<Image>().color = Color.white;
+
+            answerButtons[i].onClick.RemoveAllListeners();
+            answerButtons[i].onClick.AddListener(() => CheckAnswer(index));
+        }
     }
 
-    public void Answer(int index)
+    public void CheckAnswer(int index)
     {
-        if (index == questions[currentQuestion].correctAnswer)
+        if (!canAnswer) return;
+
+        canAnswer = false;
+
+        Question q = questions[currentQuestion];
+
+        for (int i = 0; i < answerButtons.Length; i++)
         {
-            score++;
-            Debug.Log("Certo!");
+            answerButtons[i].interactable = false;
+        }
+
+        if (index == q.correctAnswer)
+        {
+            score += 10;
+            answerButtons[index].GetComponent<Image>().color = Color.green;
+            feedbackText.text = "Boa! Resposta certa!";
         }
         else
         {
-            Debug.Log("Errado!");
+            answerButtons[index].GetComponent<Image>().color = Color.red;
+            answerButtons[q.correctAnswer].GetComponent<Image>().color = Color.green;
+            feedbackText.text = "Ops! A resposta certa era: " + q.answers[q.correctAnswer];
         }
 
+        Invoke(nameof(NextQuestion), 2f);
+    }
+
+    void NextQuestion()
+    {
         currentQuestion++;
 
         if (currentQuestion < questions.Length)
@@ -65,38 +104,8 @@ public class QuizManager : MonoBehaviour
         }
         else
         {
-            ShowResult();
-        }
-    }
-
-    public MedalSystem medalSystem;
-    void ShowResult()
-    {
-        resultPanel.SetActive(true);
-        resultText.text = "Pontuação: " + score + "/" + questions.Length;
-
-        medalSystem.SetMedal(score, questions.Length);
-    }
-    IEnumerator ChangeBackground(Sprite newBg)
-    {
-        float t = 0;
-
-        while (t < 1)
-        {
-            t += Time.deltaTime * 2;
-            backgroundImage.color = new Color(1,1,1,1 - t);
-            yield return null;
-        }
-
-        backgroundImage.sprite = newBg;
-
-        t = 0;
-
-        while (t < 1)
-        {
-            t += Time.deltaTime * 2;
-            backgroundImage.color = new Color(1,1,1,t);
-            yield return null;
+            PlayerPrefs.SetInt("PontuacaoFinal", score);
+            SceneManager.LoadScene("ResultadoFinal");
         }
     }
 }
