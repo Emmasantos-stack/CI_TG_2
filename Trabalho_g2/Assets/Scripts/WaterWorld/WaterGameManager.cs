@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WaterGameManager : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class WaterGameManager : MonoBehaviour
     [Header("Game")]
     [SerializeField, Min(1)] private int startingLives = 3;
     [SerializeField, Min(1f)] private float gameDuration = 60f;
+    [SerializeField] private string menuSceneName = "SeleçaoMundo";
 
     [Header("References")]
     [SerializeField] private WaterHUD hud;
@@ -81,6 +83,22 @@ public class WaterGameManager : MonoBehaviour
         IsGameStarted = true;
         hud?.SetTime(RemainingTime);
         hud?.SetInstructions(false);
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void ReturnToMenu()
+    {
+        if (string.IsNullOrWhiteSpace(menuSceneName))
+        {
+            Debug.LogWarning("Menu Scene Name não está configurado.", this);
+            return;
+        }
+
+        SceneManager.LoadScene(menuSceneName);
     }
 
     public void AddScore(int amount)
