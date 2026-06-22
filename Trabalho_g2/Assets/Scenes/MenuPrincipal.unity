@@ -343,6 +343,7 @@ GameObject:
   - component: {fileID: 240304256}
   - component: {fileID: 240304254}
   - component: {fileID: 240304255}
+  - component: {fileID: 240304257}
   m_Layer: 5
   m_Name: btnSom
   m_TagString: Untagged
@@ -464,6 +465,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 240304252}
   m_CullTransparentMesh: 1
+--- !u!114 &240304257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 240304252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4230098d82ce1304cbe6cd8a2fa584ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverScale: 1.1
+  speed: 10
 --- !u!1 &350325817
 GameObject:
   m_ObjectHideFlags: 0
@@ -476,6 +491,7 @@ GameObject:
   - component: {fileID: 350325821}
   - component: {fileID: 350325820}
   - component: {fileID: 350325819}
+  - component: {fileID: 350325822}
   m_Layer: 0
   m_Name: sair
   m_TagString: Untagged
@@ -597,6 +613,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 350325817}
   m_CullTransparentMesh: 1
+--- !u!114 &350325822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 350325817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4230098d82ce1304cbe6cd8a2fa584ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverScale: 1.1
+  speed: 10
 --- !u!1 &417736158
 GameObject:
   m_ObjectHideFlags: 0
@@ -609,6 +639,7 @@ GameObject:
   - component: {fileID: 417736162}
   - component: {fileID: 417736161}
   - component: {fileID: 417736160}
+  - component: {fileID: 417736163}
   m_Layer: 0
   m_Name: jgr
   m_TagString: Untagged
@@ -730,6 +761,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 417736158}
   m_CullTransparentMesh: 1
+--- !u!114 &417736163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 417736158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4230098d82ce1304cbe6cd8a2fa584ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverScale: 1.1
+  speed: 10
 --- !u!1 &537065369
 GameObject:
   m_ObjectHideFlags: 0
@@ -742,6 +787,7 @@ GameObject:
   - component: {fileID: 537065373}
   - component: {fileID: 537065372}
   - component: {fileID: 537065371}
+  - component: {fileID: 537065374}
   m_Layer: 0
   m_Name: cred
   m_TagString: Untagged
@@ -863,6 +909,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 537065369}
   m_CullTransparentMesh: 1
+--- !u!114 &537065374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537065369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4230098d82ce1304cbe6cd8a2fa584ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverScale: 1.1
+  speed: 10
 --- !u!1 &795849109
 GameObject:
   m_ObjectHideFlags: 0
@@ -1295,9 +1355,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musica: {fileID: 0}
+  botaoImagem: {fileID: 0}
   somLigado: {fileID: 21300000, guid: 24076712ea4eebd48b7402e2ab5a7e86, type: 3}
   somDesligado: {fileID: 21300000, guid: 4f732b6fee55d5545a4f7f4dc297f74a, type: 3}
-  botaoSom: {fileID: 240304254}
 --- !u!1 &1660542970
 GameObject:
   m_ObjectHideFlags: 0

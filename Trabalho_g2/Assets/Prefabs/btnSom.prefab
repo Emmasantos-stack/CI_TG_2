@@ -49,9 +49,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musica: {fileID: 0}
+  botaoImagem: {fileID: 0}
   somLigado: {fileID: 21300000, guid: 24076712ea4eebd48b7402e2ab5a7e86, type: 3}
   somDesligado: {fileID: 21300000, guid: 4f732b6fee55d5545a4f7f4dc297f74a, type: 3}
-  botaoSom: {fileID: 531321992064380889}
 --- !u!1 &6944772778411916228
 GameObject:
   m_ObjectHideFlags: 0
@@ -64,6 +64,7 @@ GameObject:
   - component: {fileID: 587550125206731298}
   - component: {fileID: 531321992064380889}
   - component: {fileID: 6187950313807055730}
+  - component: {fileID: 1867781802764269435}
   m_Layer: 5
   m_Name: btnSom
   m_TagString: Untagged
@@ -78,7 +79,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6944772778411916228}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -185,3 +186,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1867781802764269435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6944772778411916228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4230098d82ce1304cbe6cd8a2fa584ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverScale: 1.1
+  speed: 10
