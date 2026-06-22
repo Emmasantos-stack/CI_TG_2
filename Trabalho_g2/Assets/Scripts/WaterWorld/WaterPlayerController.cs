@@ -5,18 +5,17 @@ using UnityEngine.InputSystem;
 public class WaterPlayerController : MonoBehaviour
 {
     [SerializeField, Min(0f)] private float moveSpeed = 8f;
+    [SerializeField, Min(0f)] private float horizontalMargin = 0.25f;
     [SerializeField] private InputActionReference moveAction;
     [SerializeField] private Camera gameplayCamera;
     [SerializeField] private WaterGameManager gameManager;
 
     private Rigidbody2D body;
-    private Collider2D playerCollider;
     private float horizontalInput;
 
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
-        playerCollider = GetComponent<Collider2D>();
 
         if (gameplayCamera == null)
         {
@@ -56,11 +55,12 @@ public class WaterPlayerController : MonoBehaviour
         position.x += horizontalInput * moveSpeed * Time.fixedDeltaTime;
 
         float cameraDistance = Mathf.Abs(gameplayCamera.transform.position.z - transform.position.z);
-        float leftEdge = gameplayCamera.ViewportToWorldPoint(new Vector3(0f, 0.5f, cameraDistance)).x;
-        float rightEdge = gameplayCamera.ViewportToWorldPoint(new Vector3(1f, 0.5f, cameraDistance)).x;
-        float halfWidth = playerCollider != null ? playerCollider.bounds.extents.x : 0f;
+        float leftLimit = gameplayCamera.ViewportToWorldPoint(new Vector3(0f, 0.5f, cameraDistance)).x
+            + horizontalMargin;
+        float rightLimit = gameplayCamera.ViewportToWorldPoint(new Vector3(1f, 0.5f, cameraDistance)).x
+            - horizontalMargin;
 
-        position.x = Mathf.Clamp(position.x, leftEdge + halfWidth, rightEdge - halfWidth);
+        position.x = Mathf.Clamp(position.x, leftLimit, rightLimit);
         body.MovePosition(position);
     }
 
