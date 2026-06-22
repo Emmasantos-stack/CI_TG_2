@@ -16,12 +16,15 @@ public class WaterGameManager : MonoBehaviour
     public int Lives { get; private set; }
     public bool IsGameOver { get; private set; }
 
-    private void Start()
+    private void Awake()
     {
         Score = 0;
         Lives = startingLives;
         IsGameOver = false;
+    }
 
+    private void Start()
+    {
         if (hud != null)
         {
             hud.SetScore(Score);

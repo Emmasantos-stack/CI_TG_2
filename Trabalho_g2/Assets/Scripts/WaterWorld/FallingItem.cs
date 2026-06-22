@@ -13,10 +13,10 @@ public class FallingItem : MonoBehaviour
     [SerializeField, Min(1)] private int scoreValue = 10;
     [SerializeField, Min(1)] private int damageValue = 1;
     [SerializeField, Min(0f)] private float defaultFallSpeed = 4f;
-    [SerializeField] private Camera gameplayCamera;
-    [SerializeField, Min(0f)] private float destroyOffset = 1f;
+    [SerializeField, Min(0f)] private float destroyMargin = 1f;
 
     private Rigidbody2D body;
+    private Collider2D itemCollider;
     private WaterGameManager gameManager;
     private float fallSpeed;
     private bool consumed;
@@ -24,12 +24,8 @@ public class FallingItem : MonoBehaviour
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
+        itemCollider = GetComponent<Collider2D>();
         fallSpeed = defaultFallSpeed;
-
-        if (gameplayCamera == null)
-        {
-            gameplayCamera = Camera.main;
-        }
 
         if (body != null)
         {
@@ -56,14 +52,17 @@ public class FallingItem : MonoBehaviour
 
         ApplyVelocity();
 
-        if (gameplayCamera == null)
+        Camera mainCamera = Camera.main;
+        if (mainCamera == null)
         {
             return;
         }
 
-        float cameraDistance = Mathf.Abs(gameplayCamera.transform.position.z - transform.position.z);
-        float bottomEdge = gameplayCamera.ViewportToWorldPoint(new Vector3(0.5f, 0f, cameraDistance)).y;
-        if (transform.position.y < bottomEdge - destroyOffset)
+        float cameraDistance = Mathf.Abs(mainCamera.transform.position.z - transform.position.z);
+        float bottomEdge = mainCamera.ViewportToWorldPoint(new Vector3(0.5f, 0f, cameraDistance)).y;
+        float itemTop = itemCollider != null ? itemCollider.bounds.max.y : transform.position.y;
+
+        if (itemTop < bottomEdge - destroyMargin)
         {
             Destroy(gameObject);
         }

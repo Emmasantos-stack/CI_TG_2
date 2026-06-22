@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 50bc1de677f74964fb519f723acf0a4a
+guid: 22b417ba3e2825e4782955a1cf8ae263
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7567884868832009980
-    second: gota_0
-  - first:
-      213: -3808526873793715451
-    second: gota_1
+      213: -8329841401848494505
+    second: ChatGPT Image 22_06_2026, 11_05_19_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -116,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: gota_0
+      name: ChatGPT Image 22_06_2026, 11_05_19_0
       rect:
         serializedVersion: 2
-        x: 478
-        y: 168
-        width: 40
-        height: 30
+        x: 11
+        y: 0
+        width: 1513
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,30 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cfe19cb1137860960800000000000000
-      internalID: 7567884868832009980
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: gota_1
-      rect:
-        serializedVersion: 2
-        x: 482
-        y: 49
-        width: 541
-        height: 676
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5032ff99cf4652bc0800000000000000
-      internalID: -3808526873793715451
+      spriteID: 7568a7fd065766c80800000000000000
+      internalID: -8329841401848494505
       vertices: []
       indices: 
       edges: []
@@ -163,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -173,8 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      gota_0: 7567884868832009980
-      gota_1: -3808526873793715451
+      ChatGPT Image 22_06_2026, 11_05_19_0: -8329841401848494505
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

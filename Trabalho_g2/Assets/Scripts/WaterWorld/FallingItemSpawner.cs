@@ -119,7 +119,7 @@ public class FallingItemSpawner : MonoBehaviour
         spawnPosition.y += spawnOffset;
         spawnPosition.z = transform.position.z;
 
-        GameObject itemObject = Instantiate(selectedPrefab, spawnPosition, Quaternion.identity, transform);
+        GameObject itemObject = Instantiate(selectedPrefab, spawnPosition, Quaternion.identity);
         FallingItem fallingItem = itemObject.GetComponent<FallingItem>();
         if (fallingItem == null)
         {
