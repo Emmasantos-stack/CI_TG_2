@@ -20,7 +20,7 @@ public class QuizManager : MonoBehaviour
     public Button[] answerButtons;
 
     public Image characterImage;
-    public TextMeshProUGUI feedbackText;
+
     public TextMeshProUGUI progressText;
 
    public Slider progressBar;
@@ -38,7 +38,6 @@ public class QuizManager : MonoBehaviour
     void ShowQuestion()
     {
         canAnswer = true;
-        feedbackText.text = "";
 
         Question q = questions[currentQuestion];
 
@@ -48,7 +47,7 @@ public class QuizManager : MonoBehaviour
         progressBar.maxValue = questions.Length;
         progressBar.value = currentQuestion + 1;
 
-        progressText.text = "Pergunta " + (currentQuestion + 1) + " / " + questions.Length;
+        progressText.text = (currentQuestion + 1) + " / " + questions.Length;
         
 
         for (int i = 0; i < answerButtons.Length; i++)
@@ -82,13 +81,11 @@ public class QuizManager : MonoBehaviour
         {
             score += 10;
             answerButtons[index].GetComponent<Image>().color = Color.green;
-            feedbackText.text = "Boa! Resposta certa!";
         }
         else
         {
             answerButtons[index].GetComponent<Image>().color = Color.red;
             answerButtons[q.correctAnswer].GetComponent<Image>().color = Color.green;
-            feedbackText.text = "Ops! A resposta certa era: " + q.answers[q.correctAnswer];
         }
 
         Invoke(nameof(NextQuestion), 2f);
