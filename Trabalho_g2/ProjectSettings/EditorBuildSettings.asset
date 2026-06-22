@@ -47,6 +47,18 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/Scenes/Sele\xE7aoMundo.unity"
     guid: d21af759b7d0f434487eb554da152d64
+  - enabled: 1
+    path: Assets/Scenes/ResultadoFinal.unity
+    guid: 4283e06509d72dc41aa9e1b88333c441
+  - enabled: 1
+    path: Assets/Scenes/Creditos.unity
+    guid: d92c859a3398f4f44a2d9db79208e602
+  - enabled: 1
+    path: Assets/Scenes/Quiz.unity
+    guid: ccd13686a9aefb744be3721c53a630dc
+  - enabled: 1
+    path: Assets/Scenes/MenuPrincipal.unity
+    guid: f8f3ae9915f83b64d88f802be38dc63d
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

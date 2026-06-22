@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: fcee1db2342ab76478ea16c51a321ca6
+guid: 2bf290f03f8bba341ab46fe5f23d8718
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5390191805080074573
-    second: Gemini_Generated_Image_73n0u473n0u473n0_0
+      213: -6289654586514511039
+    second: ChatGPT Image 22_06_2026, 16_55_48_0
+  - first:
+      213: 7431637094721826988
+    second: ChatGPT Image 22_06_2026, 16_55_48_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Gemini_Generated_Image_73n0u473n0u473n0_0
+      name: ChatGPT Image 22_06_2026, 16_55_48_0
       rect:
         serializedVersion: 2
-        x: 406
-        y: 30
-        width: 780
-        height: 709
+        x: 11
+        y: 0
+        width: 1494
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +131,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d49f40563eecdca40800000000000000
-      internalID: 5390191805080074573
+      spriteID: 14b65e24a78a6b8a0800000000000000
+      internalID: -6289654586514511039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ChatGPT Image 22_06_2026, 16_55_48_1
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 185
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca0b28a209a722760800000000000000
+      internalID: 7431637094721826988
       vertices: []
       indices: 
       edges: []
@@ -148,7 +173,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Gemini_Generated_Image_73n0u473n0u473n0_0: 5390191805080074573
+      ChatGPT Image 22_06_2026, 16_55_48_0: -6289654586514511039
+      ChatGPT Image 22_06_2026, 16_55_48_1: 7431637094721826988
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
