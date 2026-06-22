@@ -2,8 +2,12 @@ using UnityEngine;
 
 public class WaterGameManager : MonoBehaviour
 {
+    private const int MediumScoreThreshold = 50;
+    private const int HardScoreThreshold = 100;
+
     [Header("Game")]
     [SerializeField, Min(1)] private int startingLives = 3;
+    [SerializeField, Min(1f)] private float gameDuration = 60f;
 
     [Header("References")]
     [SerializeField] private WaterHUD hud;
@@ -14,6 +18,8 @@ public class WaterGameManager : MonoBehaviour
 
     public int Score { get; private set; }
     public int Lives { get; private set; }
+    public float RemainingTime { get; private set; }
+    public FallingItemSpawner.Difficulty SelectedDifficulty { get; private set; }
     public bool IsGameStarted { get; private set; }
     public bool IsGameOver { get; private set; }
 
@@ -21,6 +27,8 @@ public class WaterGameManager : MonoBehaviour
     {
         Score = 0;
         Lives = startingLives;
+        RemainingTime = gameDuration;
+        SelectedDifficulty = FallingItemSpawner.Difficulty.Easy;
         IsGameStarted = false;
         IsGameOver = false;
     }
@@ -31,8 +39,9 @@ public class WaterGameManager : MonoBehaviour
         {
             hud.SetScore(Score);
             hud.SetLives(Lives);
+            hud.SetTime(RemainingTime);
             hud.SetInstructions(true);
-            hud.SetGameOver(false, Score);
+            hud.SetGameOver(false, Score, false);
         }
 
         if (musicSource != null && musicSource.clip != null)
@@ -45,6 +54,22 @@ public class WaterGameManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (!IsGameStarted || IsGameOver)
+        {
+            return;
+        }
+
+        RemainingTime = Mathf.Max(0f, RemainingTime - Time.deltaTime);
+        hud?.SetTime(RemainingTime);
+
+        if (RemainingTime <= 0f && Lives > 0)
+        {
+            EndGame(true);
+        }
+    }
+
     public void StartGame()
     {
         if (IsGameStarted || IsGameOver)
@@ -52,7 +77,9 @@ public class WaterGameManager : MonoBehaviour
             return;
         }
 
+        RemainingTime = gameDuration;
         IsGameStarted = true;
+        hud?.SetTime(RemainingTime);
         hud?.SetInstructions(false);
     }
 
@@ -64,6 +91,7 @@ public class WaterGameManager : MonoBehaviour
         }
 
         Score += amount;
+        UpdateDifficulty();
         hud?.SetScore(Score);
         PlaySfx(collectClip);
     }
@@ -81,14 +109,36 @@ public class WaterGameManager : MonoBehaviour
 
         if (Lives == 0)
         {
-            EndGame();
+            EndGame(false);
         }
     }
 
-    private void EndGame()
+    private void EndGame(bool victory)
     {
         IsGameOver = true;
-        hud?.SetGameOver(true, Score);
+        hud?.SetGameOver(true, Score, victory);
+    }
+
+    private void UpdateDifficulty()
+    {
+        FallingItemSpawner.Difficulty newDifficulty = FallingItemSpawner.Difficulty.Easy;
+
+        if (Score >= HardScoreThreshold)
+        {
+            newDifficulty = FallingItemSpawner.Difficulty.Hard;
+        }
+        else if (Score >= MediumScoreThreshold)
+        {
+            newDifficulty = FallingItemSpawner.Difficulty.Medium;
+        }
+
+        if (newDifficulty == SelectedDifficulty)
+        {
+            return;
+        }
+
+        SelectedDifficulty = newDifficulty;
+        Debug.Log($"Dificuldade alterada para {SelectedDifficulty}");
     }
 
     private void PlaySfx(AudioClip clip)

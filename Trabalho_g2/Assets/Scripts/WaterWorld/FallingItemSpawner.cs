@@ -86,17 +86,17 @@ public class FallingItemSpawner : MonoBehaviour
             yield return null;
         }
 
-        while (true)
+        while (!gameManager.IsGameOver)
         {
+            difficulty = gameManager.SelectedDifficulty;
             DifficultySettings settings = GetCurrentSettings();
 
-            if (!gameManager.IsGameOver)
-            {
-                SpawnItem(settings);
-            }
+            SpawnItem(settings);
 
             yield return new WaitForSeconds(Mathf.Max(0.1f, settings.spawnInterval));
         }
+
+        spawnRoutine = null;
     }
 
     private void SpawnItem(DifficultySettings settings)
