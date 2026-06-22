@@ -4,11 +4,9 @@ using UnityEngine.UI;
 public class AudioManager : MonoBehaviour
 {
     public AudioSource musica;
-
+    public Image botaoImagem;
     public Sprite somLigado;
     public Sprite somDesligado;
-
-    public Image botaoSom;
 
     private bool ligado = true;
 
@@ -16,15 +14,11 @@ public class AudioManager : MonoBehaviour
     {
         ligado = !ligado;
 
+        musica.mute = !ligado;
+
         if (ligado)
-        {
-            musica.volume = 1f;
-            botaoSom.sprite = somLigado;
-        }
+            botaoImagem.sprite = somLigado;
         else
-        {
-            musica.volume = 0f;
-            botaoSom.sprite = somDesligado;
-        }
+            botaoImagem.sprite = somDesligado;
     }
 }
