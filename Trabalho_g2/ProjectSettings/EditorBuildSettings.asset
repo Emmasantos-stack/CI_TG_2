@@ -12,10 +12,10 @@ EditorBuildSettings:
     path: Assets/Scenes/EcraInicial.unity
     guid: 1fbdb79adf45b0f47b7c3c107b343f33
   - enabled: 1
-    path: Assets/Scenes/fruta.unity
+    path: Assets/Scenes/fruta_2.unity
     guid: bef68e30d5dcb8c4ba0c287a015d6907
   - enabled: 1
-    path: Assets/Scenes/fruta_2.unity
+    path: Assets/Scenes/fruta.unity
     guid: 85a4d681ba3eb2042ae5ce69b0609759
   - enabled: 1
     path: Assets/Scenes/fruta_3.unity
