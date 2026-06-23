@@ -1368,6 +1368,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1660542971}
   - component: {fileID: 1660542972}
+  - component: {fileID: 1660542973}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -1395,6 +1396,18 @@ RectTransform:
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1660542972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660542970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 705040cfdc3312f448bfbef54ed683a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1660542973
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
