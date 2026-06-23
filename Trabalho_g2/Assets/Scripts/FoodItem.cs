@@ -1,81 +1,41 @@
 using UnityEngine;
-using TMPro;
-using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
-public class NutrientsGameManager : MonoBehaviour
+public class FoodItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    public TextMeshProUGUI timerText;
-    public TextMeshProUGUI scoreText;
+    public bool saudavel;
 
-    public float tempo = 30f;
-    public int pontosNecessarios = 3;
+    private RectTransform rectTransform;
+    private CanvasGroup canvasGroup;
+    private Vector2 posicaoInicial;
 
-    public string proximaCena;
-
-    private int pontos = 0;
-    private bool jogoAtivo = true;
-
-    void Start()
+    void Awake()
     {
-        AtualizarUI();
+        rectTransform = GetComponent<RectTransform>();
+
+        canvasGroup = GetComponent<CanvasGroup>();
+        if (canvasGroup == null)
+            canvasGroup = gameObject.AddComponent<CanvasGroup>();
     }
 
-    void Update()
+    public void OnBeginDrag(PointerEventData eventData)
     {
-        if (!jogoAtivo) return;
-
-        tempo -= Time.deltaTime;
-
-        if (tempo <= 0)
-        {
-            tempo = 0;
-            jogoAtivo = false;
-            Perdeu();
-        }
-
-        AtualizarUI();
+        posicaoInicial = rectTransform.anchoredPosition;
+        canvasGroup.blocksRaycasts = false;
     }
 
-    public void AdicionarPonto()
+    public void OnDrag(PointerEventData eventData)
     {
-        if (!jogoAtivo) return;
-
-        pontos++;
-
-        if (pontos >= pontosNecessarios)
-        {
-            jogoAtivo = false;
-            Ganhou();
-        }
-
-        AtualizarUI();
+        rectTransform.anchoredPosition += eventData.delta;
     }
 
-    public void RemoverPonto()
+    public void OnEndDrag(PointerEventData eventData)
     {
-        if (!jogoAtivo) return;
-
-        pontos--;
-
-        if (pontos < 0)
-            pontos = 0;
-
-        AtualizarUI();
+        canvasGroup.blocksRaycasts = true;
     }
 
-    void AtualizarUI()
+    public void VoltarAoInicio()
     {
-        timerText.text = "Tempo: " + Mathf.CeilToInt(tempo);
-        scoreText.text = "Pontos: " + pontos + " / " + pontosNecessarios;
-    }
-
-    void Ganhou()
-    {
-        SceneManager.LoadScene(proximaCena);
-    }
-
-    void Perdeu()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        rectTransform.anchoredPosition = posicaoInicial;
     }
 }

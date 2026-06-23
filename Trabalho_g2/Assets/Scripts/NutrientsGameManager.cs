@@ -5,13 +5,11 @@ using UnityEngine.UI;
 
 public class NutrientsGameManager : MonoBehaviour
 {
-    [Header("UI")]
     public TextMeshProUGUI timerText;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI feedbackText;
     public Button nextLevelButton;
 
-    [Header("Nível")]
     public bool usarTimer = false;
     public float tempo = 30f;
     public int pontosNecessarios = 3;
@@ -87,7 +85,6 @@ public class NutrientsGameManager : MonoBehaviour
     void Perdeu()
     {
         MostrarFeedback("O tempo acabou!", Color.red);
-
         Invoke(nameof(ReiniciarNivel), 2f);
     }
 
