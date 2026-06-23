@@ -30,21 +30,6 @@ EditorBuildSettings:
     path: Assets/Scenes/water.unity
     guid: 10459af3332a9b745934b1f49ea7b13e
   - enabled: 1
-    path: Assets/Scenes/water_2.unity
-    guid: f4b3ddbc527d26e469c057bb6dbff065
-  - enabled: 1
-    path: Assets/Scenes/water_3.unity
-    guid: 52ace5a02b5743946be5daa07ca1d733
-  - enabled: 1
-    path: Assets/Scenes/water_4.unity
-    guid: 8c136daa871ad0242808a9c4d538e6db
-  - enabled: 1
-    path: Assets/Scenes/water_5.unity
-    guid: 12d9c221186824e4e9d4ce401e698ea9
-  - enabled: 1
-    path: Assets/Scenes/water_6.unity
-    guid: 14f73e015f163cd40942bac15769e475
-  - enabled: 1
     path: "Assets/Scenes/Sele\xE7aoMundo.unity"
     guid: d21af759b7d0f434487eb554da152d64
   - enabled: 1
@@ -59,6 +44,45 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MenuPrincipal.unity
     guid: f8f3ae9915f83b64d88f802be38dc63d
+  - enabled: 1
+    path: Assets/Scenes/Nivel3Vegetais.unity
+    guid: fa385f52dd35e48879f419fa72e432a6
+  - enabled: 1
+    path: Assets/Scenes/ResultadoFinalVegetais.unity
+    guid: ba804200fae314bb699e0548c83e9461
+  - enabled: 1
+    path: Assets/Scenes/Vegetais.unity
+    guid: b074ec20c77274f879f568afbe0e635c
+  - enabled: 1
+    path: Assets/Scenes/PontuacaoJogoVegetais.unity
+    guid: 3a4a3788c41c64ebaad42aa353c9a578
+  - enabled: 1
+    path: Assets/Scenes/Nivel2Vegetais.unity
+    guid: 85b05e61f9ac948f98f797837f8a71a0
+  - enabled: 1
+    path: Assets/Scenes/Nivel1Vegetais.unity
+    guid: 9677be89265a340198004dcace8a4c9b
+  - enabled: 1
+    path: Assets/Scenes/nutrientes_2.unity
+    guid: 3c672cda97315bf40b2c3b3ccc681cf0
+  - enabled: 1
+    path: Assets/Scenes/nutrientes_1.unity
+    guid: 1b2f44be20823e843a39be9d4a3c5789
+  - enabled: 1
+    path: Assets/Scenes/nutrientes_3.unity
+    guid: 2d78b75db1c079d4c8d28714bddc81b7
+  - enabled: 1
+    path: Assets/Scenes/nutrientes_4.unity
+    guid: edb62dd3a4a3fc045a8e711724402d49
+  - enabled: 1
+    path: Assets/Scenes/fruta_6.unity
+    guid: aad93ff2b0b003c46af06066a2d4141c
+  - enabled: 1
+    path: Assets/Scenes/nutrientes_5.unity
+    guid: 5543b369d16b06c4fa98f020acef4a76
+  - enabled: 1
+    path: Assets/Scenes/nutrientes_6.unity
+    guid: eb392b050b3a9464991f82d9204c6427
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

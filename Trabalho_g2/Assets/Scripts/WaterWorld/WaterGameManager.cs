@@ -48,13 +48,9 @@ public class WaterGameManager : MonoBehaviour
             hud.SetGameOver(false, Score, false);
         }
 
-        if (musicSource != null && musicSource.clip != null)
+        if (musicSource != null)
         {
             musicSource.loop = true;
-            if (!musicSource.isPlaying)
-            {
-                musicSource.Play();
-            }
         }
     }
 
@@ -85,6 +81,7 @@ public class WaterGameManager : MonoBehaviour
         IsGameStarted = true;
         hud?.SetTime(RemainingTime);
         hud?.SetInstructions(false);
+        PlayMusic();
     }
 
     public void RestartGame()
@@ -163,9 +160,24 @@ public class WaterGameManager : MonoBehaviour
 
     private void PlaySfx(AudioClip clip)
     {
-        if (sfxSource != null && clip != null)
+        if (!IsGameOver && sfxSource != null && clip != null)
         {
             sfxSource.PlayOneShot(clip);
+        }
+    }
+
+    private void PlayMusic()
+    {
+        if (musicSource == null || musicSource.clip == null)
+        {
+            return;
+        }
+
+        musicSource.loop = true;
+
+        if (!musicSource.isPlaying)
+        {
+            musicSource.Play();
         }
     }
 }
