@@ -59,6 +59,24 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MenuPrincipal.unity
     guid: f8f3ae9915f83b64d88f802be38dc63d
+  - enabled: 1
+    path: Assets/Scenes/Nivel3Vegetais.unity
+    guid: fa385f52dd35e48879f419fa72e432a6
+  - enabled: 1
+    path: Assets/Scenes/ResultadoFinalVegetais.unity
+    guid: ba804200fae314bb699e0548c83e9461
+  - enabled: 1
+    path: Assets/Scenes/Vegetais.unity
+    guid: b074ec20c77274f879f568afbe0e635c
+  - enabled: 1
+    path: Assets/Scenes/PontuacaoJogoVegetais.unity
+    guid: 3a4a3788c41c64ebaad42aa353c9a578
+  - enabled: 1
+    path: Assets/Scenes/Nivel2Vegetais.unity
+    guid: 85b05e61f9ac948f98f797837f8a71a0
+  - enabled: 1
+    path: Assets/Scenes/Nivel1Vegetais.unity
+    guid: 9677be89265a340198004dcace8a4c9b
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
