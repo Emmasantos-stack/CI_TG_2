@@ -2352,7 +2352,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 117056556632248074, guid: e27b7b56d93c0a3419096cf978a65038, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: MenuPrincipal
+      value: "Sele\xE7aoMundo"
       objectReference: {fileID: 0}
     - target: {fileID: 117056556632248074, guid: e27b7b56d93c0a3419096cf978a65038, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
