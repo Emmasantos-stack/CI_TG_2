@@ -1,19 +1,18 @@
 using UnityEngine;
-using UnityEngine.SceneManagement; // Obrigatório para mudar de cena
+using UnityEngine.SceneManagement;
 
 public class ChangeScene : MonoBehaviour
 {
-    // Esta função pode ser chamada por qualquer botão no Unity
+    // Esta função vai receber o nome da cena do botão
     public void MudarCena(string nomeDaCena)
     {
-        // Verifica se não escreveste o nome vazio por engano
         if (!string.IsNullOrEmpty(nomeDaCena))
         {
-            SceneManager.LoadScene(nomeDaCena);
+            UnityEngine.SceneManagement.SceneManager.LoadScene(nomeDaCena);
         }
         else
         {
-            Debug.LogWarning("Por favor, digita o nome da cena no componente do Botão!");
+            Debug.LogWarning("Escreve o nome da cena no botão!");
         }
     }
 }

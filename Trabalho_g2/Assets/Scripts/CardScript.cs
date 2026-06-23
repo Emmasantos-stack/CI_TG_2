@@ -3,46 +3,50 @@ using UnityEngine.UI;
 
 public class CardScript : MonoBehaviour
 {
+    public int cardID; // O número do par (ex: Abacate = ID 1, Vitamina E = ID 1)
+    
     public Image Below;
     public Image Cover;
 
-    public void Awake()
+    private void Awake()
     {
-        Below.gameObject.SetActive(true);
-        Cover.gameObject.SetActive(true);
+        // Garante que tudo começa visível quando o jogo inicia
+        if (Below != null) Below.enabled = true;
+        if (Cover != null) Cover.enabled = true;
     }
 
-    // Define cor
+    // Define os dados da carta enviados pelo CardsManager
+    public void SetCardData(Sprite imagem, int id)
+    {
+        cardID = id;
+        if (Below != null)
+        {
+            Below.sprite = imagem; // Define a imagem (da fruta ou da vitamina)
+            Below.color = Color.white; // Garante que a imagem não fica escura/transparente
+        }
+    }
+
+    // Define apenas a cor (se precisares para outros testes)
     public void SetBelowColor(Color newColor)
     {
-        Below.color = newColor;
+        if (Below != null) Below.color = newColor;
     }
 
-    // Define imagem
-    public void SetBelowImage(Sprite newImage)
-    {
-        Below.color = Color.white;
-        Below.sprite = newImage;
-    }
-
-    // Esconde a tampa
+    // Esconde apenas o componente de Imagem da tampa, mantendo o Botão CLICÁVEL!
     public void DisableCover()
     {
-        Cover.gameObject.SetActive(false);
+        if (Cover != null)
+        {
+            Cover.enabled = false;
+        }
     }
 
-    // Mostra a tampa
+    // Mostra a imagem da tampa novamente
     public void EnableCover()
     {
-        Cover.gameObject.SetActive(true);
+        if (Cover != null)
+        {
+            Cover.enabled = true;
+        }
     }
-
-    public int cardID; // O número do par (ex: Abacate = ID 1, Vitamina E = ID 1)
-
-public void SetCardData(Sprite imagem, int id)
-{
-    Below.sprite = imagem; // Define a imagem (da fruta ou da vitamina)
-    cardID = id;           // Guarda a ID para podermos comparar depois
-}
-
 }

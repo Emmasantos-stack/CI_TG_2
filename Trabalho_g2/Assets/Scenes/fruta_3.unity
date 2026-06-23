@@ -477,7 +477,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 263810501}
-  - component: {fileID: 263810500}
+  - component: {fileID: 263810502}
   m_Layer: 0
   m_Name: ChangeScene
   m_TagString: Untagged
@@ -485,18 +485,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &263810500
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 263810499}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 705040cfdc3312f448bfbef54ed683a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &263810501
 Transform:
   m_ObjectHideFlags: 0
@@ -512,6 +500,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &263810502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263810499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc5903702a6b5624b81b11598223ecb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &282468627
 GameObject:
   m_ObjectHideFlags: 0
@@ -547,7 +547,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.448}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -76.5, y: 97}
+  m_AnchoredPosition: {x: -14, y: 58}
   m_SizeDelta: {x: 624.1589, y: 401.1686}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &282468629
@@ -570,7 +570,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -5501064560868099026, guid: 4ef146f0a0c193e43bccdcc37ec589f7, type: 3}
+  m_Sprite: {fileID: 6437142266285043447, guid: f885d46ec5e6d4d48b2670bd57b1b75b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -761,8 +761,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 252, y: -85}
-  m_SizeDelta: {x: 461.2986, y: 86.4935}
+  m_AnchoredPosition: {x: 145, y: -232}
+  m_SizeDelta: {x: 369.4514, y: 69.2721}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &546137362
 MonoBehaviour:
@@ -807,7 +807,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 546137363}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 263810502}
+        m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
+        m_MethodName: MudarCena
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: fruta_4
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &546137363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -880,8 +892,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -6.2472, y: 28.5329}
-  m_SizeDelta: {x: 575.7761, y: 245.3967}
+  m_AnchoredPosition: {x: 41, y: 0.000018597}
+  m_SizeDelta: {x: 424.3553, y: 172.97}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &558440390
 MonoBehaviour:
@@ -903,7 +915,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: 'Escolhe o teu nivel '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -912,7 +924,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4278190080
   m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -936,7 +948,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -1103,8 +1115,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 250.67, y: -337}
-  m_SizeDelta: {x: 458.64, y: 85.995}
+  m_AnchoredPosition: {x: -93.257, y: -396.92}
+  m_SizeDelta: {x: 367.3221, y: 68.8729}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1448420704
 MonoBehaviour:
@@ -1149,7 +1161,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1448420705}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 263810502}
+        m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
+        m_MethodName: MudarCena
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: fruta_6
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1448420705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1224,8 +1248,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 253.33, y: -207}
-  m_SizeDelta: {x: 458.64, y: 85.9956}
+  m_AnchoredPosition: {x: 373, y: -396.92}
+  m_SizeDelta: {x: 367.3221, y: 68.8734}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1463963962
 MonoBehaviour:
@@ -1270,7 +1294,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1463963963}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 263810502}
+        m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
+        m_MethodName: MudarCena
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: fruta_5
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1463963963
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1059,8 +1059,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45
-  m_fontSizeBase: 45
+  m_fontSize: 39
+  m_fontSizeBase: 39
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1128,8 +1128,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -6.2472, y: 28.5329}
-  m_SizeDelta: {x: 575.7761, y: 245.3967}
+  m_AnchoredPosition: {x: 56.089, y: -2.2242}
+  m_SizeDelta: {x: 430.8631, y: 249.845}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &557590766 stripped
 GameObject:
@@ -2011,7 +2011,7 @@ PrefabInstance:
     - target: {fileID: 8628254993663735962, guid: 2fe2d94eb9dec6c4784420dd9ece2f6b, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -6730865687208401858, guid: dd9d611fbd6c660428f40f987adfcb10, type: 3}
+      objectReference: {fileID: -3939342172936732036, guid: 637d91eaad50b1b4ca457cd9609c904e, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2175,7 +2175,7 @@ PrefabInstance:
     - target: {fileID: 8628254993663735962, guid: 2fe2d94eb9dec6c4784420dd9ece2f6b, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -6730865687208401858, guid: dd9d611fbd6c660428f40f987adfcb10, type: 3}
+      objectReference: {fileID: -5450049651285600183, guid: 637d91eaad50b1b4ca457cd9609c904e, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2932,7 +2932,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.448}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10, y: 95}
+  m_AnchoredPosition: {x: 53, y: 95}
   m_SizeDelta: {x: 748.3987, y: 481.0219}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1365421909
@@ -2955,7 +2955,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -5501064560868099026, guid: 4ef146f0a0c193e43bccdcc37ec589f7, type: 3}
+  m_Sprite: {fileID: 6437142266285043447, guid: f885d46ec5e6d4d48b2670bd57b1b75b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3120,7 +3120,7 @@ PrefabInstance:
     - target: {fileID: 8628254993663735962, guid: 2fe2d94eb9dec6c4784420dd9ece2f6b, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -6730865687208401858, guid: dd9d611fbd6c660428f40f987adfcb10, type: 3}
+      objectReference: {fileID: 6674121509638351369, guid: 637d91eaad50b1b4ca457cd9609c904e, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3264,7 +3264,7 @@ PrefabInstance:
     - target: {fileID: 8628254993663735962, guid: 2fe2d94eb9dec6c4784420dd9ece2f6b, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -6730865687208401858, guid: dd9d611fbd6c660428f40f987adfcb10, type: 3}
+      objectReference: {fileID: 1963148545225253636, guid: 637d91eaad50b1b4ca457cd9609c904e, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

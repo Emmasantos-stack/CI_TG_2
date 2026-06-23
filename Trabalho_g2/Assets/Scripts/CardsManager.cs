@@ -4,19 +4,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI; 
 using Random = UnityEngine.Random;
 
 public class CardsManager : MonoBehaviour
 {
     [SerializeField]
-    private List<CardScript> listOfCards; // O total de cartas na cena (ex: 8 cartas para 4 pares)
+    private List<CardScript> listOfCards; 
 
     [Header("Imagens do Jogo de Memória")]
     [SerializeField]
-    private List<Sprite> spritesFrutas;    // Coloca aqui as fotos das frutas (Tamanho ex: 4)
+    private List<Sprite> spritesFrutas;    
 
     [SerializeField]
-    private List<Sprite> spritesVitaminas; // Coloca aqui as fotos das vitaminas NA MESMA ORDEM (Tamanho ex: 4)
+    private List<Sprite> spritesVitaminas; 
 
     [SerializeField]
     private AudioSource victoryMusic;
@@ -34,55 +35,111 @@ public class CardsManager : MonoBehaviour
 
     void Start()
     {
-        // Garante que o número de cartas na cena é o dobro do número de frutas/vitaminas
-        if (spritesFrutas.Count != spritesVitaminas.Count || listOfCards.Count != spritesFrutas.Count * 2)
-        {
-            throw new ApplicationException("Erro: O número de cartas na cena tem de ser o dobro do número de frutas na lista!");
-        }
+        if (spritesFrutas == null || spritesVitaminas == null || listOfCards == null) return;
+        if (spritesFrutas.Count != spritesVitaminas.Count || listOfCards.Count != spritesFrutas.Count * 2) return;
 
-        // Distribuir os pares pelas cartas
-        // Cada par (i) vai receber a mesma ID, ligando a Fruta à sua Vitamina
+        // Distribuir os pares pelas cartas com segurança
         int cardIndex = 0;
         for (int i = 0; i < spritesFrutas.Count; i++)
         {
-            // Configura a carta da Fruta (ID = i)
-            listOfCards[cardIndex].SetCardData(spritesFrutas[i], i);
+            if (cardIndex < listOfCards.Count && listOfCards[cardIndex] != null)
+                listOfCards[cardIndex].SetCardData(spritesFrutas[i], i);
             cardIndex++;
 
-            // Configura a carta da Vitamina correspondente (ID = i)
-            listOfCards[cardIndex].SetCardData(spritesVitaminas[i], i);
+            if (cardIndex < listOfCards.Count && listOfCards[cardIndex] != null)
+                listOfCards[cardIndex].SetCardData(spritesVitaminas[i], i);
             cardIndex++;
         }
 
-        // Misturar todas as cartas na mesa para o jogador não saber onde estão
+        // Executa o Shuffle com uma pequena folga de tempo para a UI
+        StartCoroutine(ExecutarShuffleGarantido());
+    }
+
+    IEnumerator ExecutarShuffleGarantido()
+    {
+        yield return new WaitForEndOfFrame(); 
         Shuffle(listOfCards);
     }
 
-    void Shuffle<T>(List<T> list)
+    void Shuffle(List<CardScript> list)
     {
-        int n = list.Count;
+        if (list == null || list.Count <= 1) return;
+
+        // 1. Desliga temporariamente os Layout Groups automáticos se existirem no Pai com segurança
+        Transform objetoPai = null;
+        foreach (var card in list)
+        {
+            if (card != null)
+            {
+                objetoPai = card.transform.parent;
+                break;
+            }
+        }
+
+        LayoutGroup layoutGroup = null;
+        if (objetoPai != null)
+        {
+            layoutGroup = objetoPai.GetComponent<LayoutGroup>();
+            if (layoutGroup != null) layoutGroup.enabled = false;
+        }
+
+        // 2. Guarda apenas as posições de UI válidas (evita o erro da linha 70)
+        List<Vector2> posicoesUI = new List<Vector2>();
+        for (int i = 0; i < list.Count; i++)
+        {
+            if (list[i] != null)
+            {
+                RectTransform rect = list[i].GetComponent<RectTransform>();
+                if (rect != null)
+                {
+                    posicoesUI.Add(rect.anchoredPosition);
+                }
+            }
+        }
+
+        // 3. Baralha a lista de posições guardadas (Algoritmo Fisher-Yates)
+        int n = posicoesUI.Count;
         while (n > 1)
         {
             n--;
             int k = Random.Range(0, n + 1);
-            (list[k], list[n]) = (list[n], list[k]);
+            Vector2 temp = posicoesUI[k];
+            posicoesUI[k] = posicoesUI[n];
+            posicoesUI[n] = temp;
         }
 
-        for (int i = 0; i < listOfCards.Count; i++)
+        // 4. Aplica as novas posições baralhadas de volta às cartas reais
+        int posicaoIndex = 0;
+        for (int i = 0; i < list.Count; i++)
         {
-            listOfCards[i].transform.SetSiblingIndex(i);
+            if (list[i] != null && posicaoIndex < posicoesUI.Count)
+            {
+                RectTransform rect = list[i].GetComponent<RectTransform>();
+                if (rect != null)
+                {
+                    rect.anchoredPosition = posicoesUI[posicaoIndex];
+                    posicaoIndex++;
+                }
+            }
         }
+
+        // 5. Reativa o layout se existia para recalcular a interface
+        if (layoutGroup != null && objetoPai != null)
+        {
+            layoutGroup.enabled = true;
+            LayoutRebuilder.ForceRebuildLayoutImmediate(objetoPai.GetComponent<RectTransform>());
+        }
+
+        Debug.Log("Shuffle concluído sem erros!");
     }
 
     public void OnCardClick()
     {
-        if (EventSystem.current.currentSelectedGameObject == null) return;
+        if (EventSystem.current == null || EventSystem.current.currentSelectedGameObject == null) return;
         if (firstSelectedItem && secondSelectedItem) return;
 
         var clickedItem = EventSystem.current.currentSelectedGameObject.GetComponentInParent<CardScript>();
-
-        // Evita que o jogador clique na mesma carta duas vezes
-        if (clickedItem == firstSelectedItem) return;
+        if (clickedItem == null || clickedItem == firstSelectedItem) return;
 
         if (!firstSelectedItem)
         {
@@ -93,24 +150,21 @@ public class CardsManager : MonoBehaviour
         {
             secondSelectedItem = clickedItem;
             secondSelectedItem.DisableCover();
-
             CompareChosenItems();
         }
     }
 
-    // --- A MÁGICA ACONTECE AQUI ---
     private void CompareChosenItems()
     {
-        // Em vez de comparar os sprites, comparamos as IDs que demos no Start()!
+        if (firstSelectedItem == null || secondSelectedItem == null) return;
+
         if (firstSelectedItem.cardID == secondSelectedItem.cardID)
         {
-            // É um par correto! (Ex: Clicou no Abacate [ID 0] e na Vitamina E [ID 0])
             numberOfMatches++;
             StartCoroutine(ResetAndCheckFinish(0, false));
         }
         else
         {
-            // Errou o par!
             StartCoroutine(ResetAndCheckFinish(1.5f, true));
         }
     }
@@ -118,29 +172,24 @@ public class CardsManager : MonoBehaviour
     IEnumerator ResetAndCheckFinish(float numberOfSecondsToWait, bool shouldReset)
     {
         if (canvasGroup != null) canvasGroup.interactable = false;
-
         yield return new WaitForSeconds(numberOfSecondsToWait);
 
         if (shouldReset)
         {
-            firstSelectedItem.EnableCover();
-            secondSelectedItem.EnableCover();
+            if (firstSelectedItem != null) firstSelectedItem.EnableCover();
+            if (secondSelectedItem != null) secondSelectedItem.EnableCover();
         }
 
         firstSelectedItem = null;
         secondSelectedItem = null;
-
         if (canvasGroup != null) canvasGroup.interactable = true;
 
-        if (numberOfMatches == listOfCards.Count / 2)
-        {
-            StartCoroutine(LoadFinalScene());
-        }
+        if (numberOfMatches == listOfCards.Count / 2) StartCoroutine(LoadFinalScene());
     }
 
     IEnumerator LoadFinalScene()
     {
-        GameManager.SetSeconds(timerScript.GetTimerAndStop());
+        if (timerScript != null) GameManager.SetSeconds(timerScript.GetTimerAndStop());
         if (victoryMusic != null) victoryMusic.Play();
         yield return new WaitForSeconds(victoryMusic != null ? victoryMusic.clip.length : 2f);
         SceneManager.LoadScene("FinalScene");

@@ -1,0 +1,546 @@
+fileFormatVersion: 2
+guid: a50700d87be1fed49b15f1c3feb77a12
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5284514952710156161
+    second: vitaminas_0
+  - first:
+      213: 6223379568874431397
+    second: vitaminas_1
+  - first:
+      213: -2378753766297063078
+    second: vitaminas_2
+  - first:
+      213: 1292582198417669085
+    second: vitaminas_3
+  - first:
+      213: -4243048756162186570
+    second: vitaminas_4
+  - first:
+      213: -6099046871776443323
+    second: vitaminas_5
+  - first:
+      213: 5406067401592265138
+    second: vitaminas_6
+  - first:
+      213: -2422055722650134679
+    second: vitaminas_7
+  - first:
+      213: 1215037909522258753
+    second: vitaminas_8
+  - first:
+      213: -5513324729978506223
+    second: vitaminas_9
+  - first:
+      213: -3851915181687184841
+    second: vitaminas_10
+  - first:
+      213: 525610477378909994
+    second: vitaminas_11
+  - first:
+      213: -3237531845726405760
+    second: vitaminas_12
+  - first:
+      213: 8374633682877782702
+    second: vitaminas_13
+  - first:
+      213: -5871928970545725651
+    second: vitaminas_14
+  - first:
+      213: -4750640144924270382
+    second: vitaminas_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: vitaminas_0
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 762
+        width: 204
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18f6786d95e565940800000000000000
+      internalID: 5284514952710156161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vitaminas_1
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 761
+        width: 204
+        height: 211
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a32f29beb2ed5650800000000000000
+      internalID: 6223379568874431397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vitaminas_2
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 757
+        width: 227
+        height: 216
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a51bdbf7d08fcfed0800000000000000
+      internalID: -2378753766297063078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vitaminas_3
+      rect:
+        serializedVersion: 2
+        x: 821
+        y: 757
+        width: 226
+        height: 216
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddbbdab39ac20f110800000000000000
+      internalID: 1292582198417669085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vitaminas_4
+      rect:
+        serializedVersion: 2
+        x: 1097
+        y: 757
+        width: 228
+        height: 216
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b23a4c03a9ad15c0800000000000000
+      internalID: -4243048756162186570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vitaminas_5
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 505
+        width: 219
+        height: 209
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 544ce4b2f25db5ba0800000000000000
+      internalID: -6099046871776443323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vitaminas_6
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 505
+        width: 221
+        height: 209
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b9d9bfb8a5360b40800000000000000
+      internalID: 5406067401592265138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vitaminas_7
+      rect:
+        serializedVersion: 2
+        x: 622
+        y: 503
+        width: 314
+        height: 211
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9679c312721236ed0800000000000000
+      internalID: -2422055722650134679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vitaminas_8
+      rect:
+        serializedVersion: 2
+        x: 1036
+        y: 501
+        width: 314
+        height: 213
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14b15b98a8eacd010800000000000000
+      internalID: 1215037909522258753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vitaminas_9
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 262
+        width: 220
+        height: 208
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11431427e5cbc73b0800000000000000
+      internalID: -5513324729978506223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vitaminas_10
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 261
+        width: 220
+        height: 209
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 732e992fc8f3b8ac0800000000000000
+      internalID: -3851915181687184841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vitaminas_11
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 262
+        width: 220
+        height: 208
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a27b462c1f75b4700800000000000000
+      internalID: 525610477378909994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vitaminas_12
+      rect:
+        serializedVersion: 2
+        x: 971
+        y: 262
+        width: 290
+        height: 208
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08b767280f9f113d0800000000000000
+      internalID: -3237531845726405760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vitaminas_13
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 44
+        width: 213
+        height: 198
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eaa93ffb6fca83470800000000000000
+      internalID: 8374633682877782702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vitaminas_14
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 44
+        width: 213
+        height: 198
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2ffb4c46b7b28ea0800000000000000
+      internalID: -5871928970545725651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: vitaminas_15
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 44
+        width: 213
+        height: 198
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d0241a45f5521eb0800000000000000
+      internalID: -4750640144924270382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      vitaminas_0: 5284514952710156161
+      vitaminas_1: 6223379568874431397
+      vitaminas_10: -3851915181687184841
+      vitaminas_11: 525610477378909994
+      vitaminas_12: -3237531845726405760
+      vitaminas_13: 8374633682877782702
+      vitaminas_14: -5871928970545725651
+      vitaminas_15: -4750640144924270382
+      vitaminas_2: -2378753766297063078
+      vitaminas_3: 1292582198417669085
+      vitaminas_4: -4243048756162186570
+      vitaminas_5: -6099046871776443323
+      vitaminas_6: 5406067401592265138
+      vitaminas_7: -2422055722650134679
+      vitaminas_8: 1215037909522258753
+      vitaminas_9: -5513324729978506223
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
