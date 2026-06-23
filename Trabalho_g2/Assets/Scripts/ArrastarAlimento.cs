@@ -6,6 +6,7 @@ public class ArrastarAlimento : MonoBehaviour, IBeginDragHandler, IDragHandler, 
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
     private Vector2 posicaoInicial;
+    private Canvas canvasPrincipal; // Guardamos o canvas aqui de forma segura
 
     [HideInInspector] public Transform paiOriginal;
 
@@ -13,9 +14,11 @@ public class ArrastarAlimento : MonoBehaviour, IBeginDragHandler, IDragHandler, 
     {
         rectTransform = GetComponent<RectTransform>();
         
-        // Adiciona um CanvasGroup se não existir (ajuda a ignorar o raio do rato ao largar)
         canvasGroup = GetComponent<CanvasGroup>();
         if (canvasGroup == null) canvasGroup = gameObject.AddComponent<CanvasGroup>();
+
+        // Procura pelo Canvas subindo na árvore de objetos, sem ir para a câmara
+        canvasPrincipal = GetComponentInParent<Canvas>();
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -23,17 +26,22 @@ public class ArrastarAlimento : MonoBehaviour, IBeginDragHandler, IDragHandler, 
         posicaoInicial = rectTransform.anchoredPosition;
         paiOriginal = transform.parent;
         
-        // Bloqueia os raios do rato para que a zona onde vais largar consiga detetar o clique
         canvasGroup.blocksRaycasts = false;
-        
-        // Opcional: faz com que fique ligeiramente transparente ao arrastar
         canvasGroup.alpha = 0.6f;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        // Move o alimento seguindo o rato/toque
-        rectTransform.anchoredPosition += eventData.delta / transform.root.GetComponent<Canvas>().scaleFactor;
+        // Se encontramos o Canvas, usamos o scaleFactor dele
+        if (canvasPrincipal != null)
+        {
+            rectTransform.anchoredPosition += eventData.delta / canvasPrincipal.scaleFactor;
+        }
+        else
+        {
+            // Código de segurança caso ele não encontre o canvas por alguma razão
+            rectTransform.anchoredPosition += eventData.delta;
+        }
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -41,7 +49,6 @@ public class ArrastarAlimento : MonoBehaviour, IBeginDragHandler, IDragHandler, 
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
 
-        // Se não foi largado num local correto (o pai não mudou), volta para o início
         if (transform.parent == paiOriginal)
         {
             rectTransform.anchoredPosition = posicaoInicial;
