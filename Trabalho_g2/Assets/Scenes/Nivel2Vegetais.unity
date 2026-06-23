@@ -1527,6 +1527,7 @@ GameObject:
   - component: {fileID: 892899679}
   - component: {fileID: 892899678}
   - component: {fileID: 892899677}
+  - component: {fileID: 892899680}
   m_Layer: 0
   m_Name: "Bot\xE3oAvan\xE7ar"
   m_TagString: Untagged
@@ -1648,6 +1649,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 892899675}
   m_CullTransparentMesh: 1
+--- !u!114 &892899680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 892899675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4230098d82ce1304cbe6cd8a2fa584ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverScale: 1.1
+  speed: 10
 --- !u!1 &893379884
 GameObject:
   m_ObjectHideFlags: 0
