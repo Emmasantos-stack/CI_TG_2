@@ -5,31 +5,33 @@ using UnityEngine.UI;
 
 public class NutrientsGameManager : MonoBehaviour
 {
-    public TextMeshProUGUI timerText;
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI timerText;
     public TextMeshProUGUI feedbackText;
+
     public Button nextLevelButton;
+
+    public int pontosNecessarios = 3;
+    public string proximaCena;
 
     public bool usarTimer = false;
     public float tempo = 30f;
-    public int pontosNecessarios = 3;
-    public string proximaCena;
 
     private int pontos = 0;
     private bool jogoAtivo = true;
 
     void Start()
     {
+        AtualizarUI();
+
+        if (timerText != null)
+            timerText.gameObject.SetActive(usarTimer);
+
         if (nextLevelButton != null)
             nextLevelButton.gameObject.SetActive(false);
 
-        if (!usarTimer && timerText != null)
-            timerText.gameObject.SetActive(false);
-
         if (feedbackText != null)
             feedbackText.text = "";
-
-        AtualizarUI();
     }
 
     void Update()
@@ -42,7 +44,8 @@ public class NutrientsGameManager : MonoBehaviour
         {
             tempo = 0;
             jogoAtivo = false;
-            Perdeu();
+            feedbackText.text = "Tempo esgotado!";
+            Invoke(nameof(ReiniciarNivel), 2f);
         }
 
         AtualizarUI();
@@ -53,7 +56,12 @@ public class NutrientsGameManager : MonoBehaviour
         if (!jogoAtivo) return;
 
         pontos++;
-        MostrarFeedback("Boa escolha!", Color.green);
+
+        if (feedbackText != null)
+        {
+            feedbackText.text = "Boa escolha!";
+            feedbackText.color = Color.green;
+        }
 
         if (pontos >= pontosNecessarios)
             Ganhou();
@@ -66,7 +74,12 @@ public class NutrientsGameManager : MonoBehaviour
         if (!jogoAtivo) return;
 
         pontos = Mathf.Max(0, pontos - 1);
-        MostrarFeedback("Esse não é tão saudável!", Color.red);
+
+        if (feedbackText != null)
+        {
+            feedbackText.text = "Esse alimento não é tão saudável!";
+            feedbackText.color = Color.red;
+        }
 
         AtualizarUI();
     }
@@ -74,18 +87,17 @@ public class NutrientsGameManager : MonoBehaviour
     void Ganhou()
     {
         jogoAtivo = false;
-        MostrarFeedback("Prato completo!", Color.green);
+
+        if (feedbackText != null)
+        {
+            feedbackText.text = "Prato saudável completo!";
+            feedbackText.color = Color.green;
+        }
 
         if (nextLevelButton != null)
             nextLevelButton.gameObject.SetActive(true);
         else
             SceneManager.LoadScene(proximaCena);
-    }
-
-    void Perdeu()
-    {
-        MostrarFeedback("O tempo acabou!", Color.red);
-        Invoke(nameof(ReiniciarNivel), 2f);
     }
 
     public void IrParaProximoNivel()
@@ -100,18 +112,10 @@ public class NutrientsGameManager : MonoBehaviour
 
     void AtualizarUI()
     {
-        if (usarTimer && timerText != null)
-            timerText.text = "Tempo: " + Mathf.CeilToInt(tempo);
-
         if (scoreText != null)
-            scoreText.text = "Pontos: " + pontos + " / " + pontosNecessarios;
-    }
+            scoreText.text = pontos + "/" + pontosNecessarios;
 
-    void MostrarFeedback(string mensagem, Color cor)
-    {
-        if (feedbackText == null) return;
-
-        feedbackText.text = mensagem;
-        feedbackText.color = cor;
+        if (timerText != null && usarTimer)
+            timerText.text = "Tempo: " + Mathf.CeilToInt(tempo);
     }
 }
