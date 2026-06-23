@@ -4,49 +4,36 @@ using UnityEngine.SceneManagement;
 
 public class NutrientsGameManager : MonoBehaviour
 {
-    [Header("UI")]
-    public TextMeshProUGUI scoreText;
     public TextMeshProUGUI timerText;
+    public TextMeshProUGUI scoreText;
 
-    [Header("Jogo")]
     public bool usarTimer = false;
-
     public float tempo = 30f;
 
     public int pontosNecessarios = 3;
-
     public string proximaCena;
 
     private int pontos = 0;
-
     private bool jogoAtivo = true;
 
     void Start()
     {
         if (!usarTimer && timerText != null)
-        {
             timerText.gameObject.SetActive(false);
-        }
 
         AtualizarUI();
     }
 
     void Update()
     {
-        if (!jogoAtivo)
-            return;
-
-        if (!usarTimer)
-            return;
+        if (!jogoAtivo || !usarTimer) return;
 
         tempo -= Time.deltaTime;
 
         if (tempo <= 0)
         {
             tempo = 0;
-
             jogoAtivo = false;
-
             Perdeu();
         }
 
@@ -55,53 +42,38 @@ public class NutrientsGameManager : MonoBehaviour
 
     public void AdicionarPonto()
     {
-        if (!jogoAtivo)
-            return;
+        if (!jogoAtivo) return;
 
         pontos++;
-
-        AtualizarUI();
 
         if (pontos >= pontosNecessarios)
         {
             jogoAtivo = false;
-
             SceneManager.LoadScene(proximaCena);
         }
+
+        AtualizarUI();
     }
 
     public void RemoverPonto()
     {
-        if (!jogoAtivo)
-            return;
+        if (!jogoAtivo) return;
 
-        pontos--;
-
-        if (pontos < 0)
-            pontos = 0;
-
+        pontos = Mathf.Max(0, pontos - 1);
         AtualizarUI();
     }
 
     void AtualizarUI()
     {
-        if (scoreText != null)
-        {
-            scoreText.text =
-                pontos + " / " + pontosNecessarios;
-        }
-
         if (usarTimer && timerText != null)
-        {
-            timerText.text =
-                Mathf.CeilToInt(tempo).ToString();
-        }
+            timerText.text = "Tempo: " + Mathf.CeilToInt(tempo);
+
+        if (scoreText != null)
+            scoreText.text = "Pontos: " + pontos + " / " + pontosNecessarios;
     }
 
     void Perdeu()
     {
-        SceneManager.LoadScene(
-            SceneManager.GetActiveScene().name
-        );
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
