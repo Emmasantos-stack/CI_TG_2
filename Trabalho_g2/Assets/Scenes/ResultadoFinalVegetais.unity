@@ -1543,8 +1543,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -39}
-  m_SizeDelta: {x: 1194.8206, y: 666.8766}
+  m_AnchoredPosition: {x: 0, y: -11.909}
+  m_SizeDelta: {x: 1022, y: 570.4054}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1569876441
 MonoBehaviour:
@@ -1566,7 +1566,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8aaf6cc5633e9ea4fa2864c9c051948d, type: 3}
+  m_Sprite: {fileID: -2924336417809626568, guid: 8cd6006aa84a948ff8e861b2761408a4, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1944,8 +1944,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -39}
-  m_SizeDelta: {x: 1194.8206, y: 666.8766}
+  m_AnchoredPosition: {x: 0, y: -9.7978}
+  m_SizeDelta: {x: 1029.5408, y: 574.6276}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1836735984
 MonoBehaviour:
@@ -1967,7 +1967,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: cf51000f26fe30441aad31675d734658, type: 3}
+  m_Sprite: {fileID: 7324582830271075172, guid: 4ef40a91bb619407587b4234f30d8920, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -2023,7 +2023,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2bf290f03f8bba341ab46fe5f23d8718, type: 3}
+  m_Sprite: {fileID: -6782184720207389769, guid: e1f9765b407d049e29b8fbcb92fbac6e, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -2057,8 +2057,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -39}
-  m_SizeDelta: {x: 1194.8206, y: 666.8766}
+  m_AnchoredPosition: {x: 0, y: -12.344}
+  m_SizeDelta: {x: 1020.4167, y: 569.535}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &2041669978
 PrefabInstance:
