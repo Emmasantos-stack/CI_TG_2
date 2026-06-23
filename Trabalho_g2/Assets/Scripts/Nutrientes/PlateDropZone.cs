@@ -15,22 +15,27 @@ public class PlateDropZone : MonoBehaviour, IDropHandler
     {
         FoodItem food = eventData.pointerDrag.GetComponent<FoodItem>();
 
-        if (food == null) return;
+        if (food == null)
+            return;
 
         if (food.saudavel)
         {
             pratoImage.color = corCerto;
+
             gameManager.AdicionarPonto();
+
             food.Desaparecer();
         }
         else
         {
             pratoImage.color = corErrado;
+
             gameManager.RemoverPonto();
+
             food.VoltarAoInicio();
         }
 
-        Invoke(nameof(ResetarCor), 0.4f);
+        Invoke(nameof(ResetarCor), 0.5f);
     }
 
     void ResetarCor()

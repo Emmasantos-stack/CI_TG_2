@@ -7,7 +7,6 @@ public class NutrientsGameManager : MonoBehaviour
 {
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI timerText;
-    public TextMeshProUGUI feedbackText;
 
     public Button nextLevelButton;
 
@@ -22,16 +21,13 @@ public class NutrientsGameManager : MonoBehaviour
 
     void Start()
     {
-        AtualizarUI();
-
         if (timerText != null)
             timerText.gameObject.SetActive(usarTimer);
 
         if (nextLevelButton != null)
             nextLevelButton.gameObject.SetActive(false);
 
-        if (feedbackText != null)
-            feedbackText.text = "";
+        AtualizarUI();
     }
 
     void Update()
@@ -44,8 +40,7 @@ public class NutrientsGameManager : MonoBehaviour
         {
             tempo = 0;
             jogoAtivo = false;
-            feedbackText.text = "Tempo esgotado!";
-            Invoke(nameof(ReiniciarNivel), 2f);
+            Invoke(nameof(ReiniciarNivel), 1.5f);
         }
 
         AtualizarUI();
@@ -56,12 +51,6 @@ public class NutrientsGameManager : MonoBehaviour
         if (!jogoAtivo) return;
 
         pontos++;
-
-        if (feedbackText != null)
-        {
-            feedbackText.text = "Boa escolha!";
-            feedbackText.color = Color.green;
-        }
 
         if (pontos >= pontosNecessarios)
             Ganhou();
@@ -74,25 +63,12 @@ public class NutrientsGameManager : MonoBehaviour
         if (!jogoAtivo) return;
 
         pontos = Mathf.Max(0, pontos - 1);
-
-        if (feedbackText != null)
-        {
-            feedbackText.text = "Esse alimento não é tão saudável!";
-            feedbackText.color = Color.red;
-        }
-
         AtualizarUI();
     }
 
     void Ganhou()
     {
         jogoAtivo = false;
-
-        if (feedbackText != null)
-        {
-            feedbackText.text = "Prato saudável completo!";
-            feedbackText.color = Color.green;
-        }
 
         if (nextLevelButton != null)
             nextLevelButton.gameObject.SetActive(true);
