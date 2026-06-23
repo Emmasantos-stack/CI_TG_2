@@ -1,15 +1,19 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class NutrientsGameManager : MonoBehaviour
 {
+    [Header("UI")]
     public TextMeshProUGUI timerText;
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI feedbackText;
+    public Button nextLevelButton;
 
+    [Header("Nível")]
     public bool usarTimer = false;
     public float tempo = 30f;
-
     public int pontosNecessarios = 3;
     public string proximaCena;
 
@@ -18,8 +22,14 @@ public class NutrientsGameManager : MonoBehaviour
 
     void Start()
     {
+        if (nextLevelButton != null)
+            nextLevelButton.gameObject.SetActive(false);
+
         if (!usarTimer && timerText != null)
             timerText.gameObject.SetActive(false);
+
+        if (feedbackText != null)
+            feedbackText.text = "";
 
         AtualizarUI();
     }
@@ -45,12 +55,10 @@ public class NutrientsGameManager : MonoBehaviour
         if (!jogoAtivo) return;
 
         pontos++;
+        MostrarFeedback("Boa escolha!", Color.green);
 
         if (pontos >= pontosNecessarios)
-        {
-            jogoAtivo = false;
-            SceneManager.LoadScene(proximaCena);
-        }
+            Ganhou();
 
         AtualizarUI();
     }
@@ -60,7 +68,37 @@ public class NutrientsGameManager : MonoBehaviour
         if (!jogoAtivo) return;
 
         pontos = Mathf.Max(0, pontos - 1);
+        MostrarFeedback("Esse não é tão saudável!", Color.red);
+
         AtualizarUI();
+    }
+
+    void Ganhou()
+    {
+        jogoAtivo = false;
+        MostrarFeedback("Prato completo!", Color.green);
+
+        if (nextLevelButton != null)
+            nextLevelButton.gameObject.SetActive(true);
+        else
+            SceneManager.LoadScene(proximaCena);
+    }
+
+    void Perdeu()
+    {
+        MostrarFeedback("O tempo acabou!", Color.red);
+
+        Invoke(nameof(ReiniciarNivel), 2f);
+    }
+
+    public void IrParaProximoNivel()
+    {
+        SceneManager.LoadScene(proximaCena);
+    }
+
+    void ReiniciarNivel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     void AtualizarUI()
@@ -72,8 +110,11 @@ public class NutrientsGameManager : MonoBehaviour
             scoreText.text = "Pontos: " + pontos + " / " + pontosNecessarios;
     }
 
-    void Perdeu()
+    void MostrarFeedback(string mensagem, Color cor)
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (feedbackText == null) return;
+
+        feedbackText.text = mensagem;
+        feedbackText.color = cor;
     }
 }
