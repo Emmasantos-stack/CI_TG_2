@@ -6,12 +6,14 @@ public class FoodItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     public bool saudavel;
 
     private RectTransform rectTransform;
+    private Canvas canvas;
     private CanvasGroup canvasGroup;
     private Vector2 posicaoInicial;
 
     void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
+        canvas = GetComponentInParent<Canvas>();
 
         canvasGroup = GetComponent<CanvasGroup>();
         if (canvasGroup == null)
@@ -26,7 +28,7 @@ public class FoodItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     public void OnDrag(PointerEventData eventData)
     {
-        rectTransform.anchoredPosition += eventData.delta;
+        rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -37,5 +39,10 @@ public class FoodItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     public void VoltarAoInicio()
     {
         rectTransform.anchoredPosition = posicaoInicial;
+    }
+
+    public void Desaparecer()
+    {
+        gameObject.SetActive(false);
     }
 }

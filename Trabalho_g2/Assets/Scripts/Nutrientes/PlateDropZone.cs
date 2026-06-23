@@ -5,45 +5,41 @@ using UnityEngine.UI;
 public class PlateDropZone : MonoBehaviour, IDropHandler
 {
     public NutrientsGameManager gameManager;
-
     public Image pratoImage;
 
-    private Color corOriginal;
-
-    void Start()
-    {
-        corOriginal = pratoImage.color;
-    }
+    public Color corNormal = Color.white;
+    public Color corCerto = Color.green;
+    public Color corErrado = Color.red;
 
     public void OnDrop(PointerEventData eventData)
     {
         FoodItem food = eventData.pointerDrag.GetComponent<FoodItem>();
 
-        if (food == null)
-            return;
+        if (food == null) return;
 
         if (food.saudavel)
         {
-            pratoImage.color = Color.green;
-
+            pratoImage.color = corCerto;
             gameManager.AdicionarPonto();
 
-            food.gameObject.SetActive(false);
+            // alimento certo fica no prato
+            food.transform.SetParent(transform);
+            food.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
         }
         else
         {
-            pratoImage.color = Color.red;
-
+            pratoImage.color = corErrado;
             gameManager.RemoverPonto();
 
+            // alimento errado volta ao sítio
             food.VoltarAoInicio();
         }
 
-        Invoke(nameof(ResetarCor), 0.5f);
+        Invoke(nameof(ResetarCor), 1f);
     }
 
     void ResetarCor()
     {
-        pratoImage.color = corOriginal;
+        pratoImage.color = corNormal;
     }
 }
