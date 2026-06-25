@@ -53,7 +53,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Vegetais.unity
     guid: b074ec20c77274f879f568afbe0e635c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/PontuacaoJogoVegetais.unity
     guid: 3a4a3788c41c64ebaad42aa353c9a578
   - enabled: 1
@@ -83,6 +83,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/nutrientes_6.unity
     guid: eb392b050b3a9464991f82d9204c6427
+  - enabled: 1
+    path: Assets/Scenes/Main.unity
+    guid: fd5bf0fd6e1aefd47bd6413183818809
+  - enabled: 1
+    path: Assets/Scenes/fruta_7.unity
+    guid: d77b583447ae4394eade8c4ce5b633f9
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

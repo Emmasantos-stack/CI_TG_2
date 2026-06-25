@@ -2921,7 +2921,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 1246147525}
   m_OnClick:
     m_PersistentCalls:
@@ -2936,6 +2936,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 400816744}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: fruta_3
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1246147525
@@ -4042,6 +4054,7 @@ MonoBehaviour:
   - {fileID: 124879256}
   - {fileID: 1622179604}
   - {fileID: 1980469497}
+  - {fileID: 1246147522}
   textosExplicacao:
   - "Ol\xE1, meninos! Hoje vamos aprender as frutas e as suas vitaminas. Vamos come\xE7ar?"
   - "O abacate cont\xE9m muita vitamina E, \xF3tima para proteger as c\xE9lulas e
